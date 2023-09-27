@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Checkpoint2.Models.Jogador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeJogador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Posicao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nacionalidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataNasc)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeJogador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Posicao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nacionalidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataNasc)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a> |
+                        <button onclick="removeKey.value = @item.Id" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Deletar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja excluir esse Jogador?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Delete">
+                    <input type="hidden" name="id" id="removeKey" />
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
