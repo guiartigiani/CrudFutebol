@@ -13,40 +13,40 @@
 </head>
 <body>
 
-<h4>Campeonato</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NomeCamp" class="control-label"></label>
-                <input asp-for="NomeCamp" class="form-control" />
-                <span asp-validation-for="NomeCamp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PaisCamp" class="control-label"></label>
-                <input asp-for="PaisCamp" class="form-control" />
-                <span asp-validation-for="PaisCamp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InicioCamp" class="control-label"></label>
-                <input asp-for="InicioCamp" class="form-control" />
-                <span asp-validation-for="InicioCamp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>Registro de Novos Campeonatos</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomeCamp" class="control-label"></label>
+                    <input asp-for="NomeCamp" class="form-control" />
+                    <span asp-validation-for="NomeCamp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaisCamp" class="control-label"></label>
+                    <input asp-for="PaisCamp" class="form-control" />
+                    <span asp-validation-for="PaisCamp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InicioCamp" class="control-label"></label>
+                    <input asp-for="InicioCamp" class="form-control" />
+                    <span asp-validation-for="InicioCamp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" style="margin-top: 20px;" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </body>
 </html>

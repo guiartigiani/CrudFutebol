@@ -27,6 +27,8 @@ namespace Checkpoint2.Controllers
             {
                 jogador.Id = ++_id;
                 _ListaJog.Add(jogador);
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Jogador cadastrado com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,6 +52,8 @@ namespace Checkpoint2.Controllers
             {
                 var index = _ListaJog.ToList().FindIndex(i => i.Id == jogador.Id);
                 _ListaJog[index] = jogador;
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Jogador atualizado com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -65,6 +69,8 @@ namespace Checkpoint2.Controllers
             try
             {
                 _ListaJog.Remove(_ListaJog.First(j => j.Id == id));
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Jogador removido com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch

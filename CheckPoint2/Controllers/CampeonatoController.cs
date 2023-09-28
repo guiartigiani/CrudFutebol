@@ -27,6 +27,8 @@ namespace Checkpoint2.Controllers
             {
                 camp.Id = ++_id;
                 _ListaCamp.Add(camp);
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Campeonato cadastrado com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,6 +52,8 @@ namespace Checkpoint2.Controllers
             {
                 var index = _ListaCamp.ToList().FindIndex(c => c.Id == camp.Id);
                 _ListaCamp[index] = camp;
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Campeonato atualizado com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -65,6 +69,8 @@ namespace Checkpoint2.Controllers
             try
             {
                 _ListaCamp.Remove(_ListaCamp.First(c => c.Id == id));
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Campeonato removido com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -4,6 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
+<alert alert-type="@TempData["mensagem"]"></alert>
+
 <!DOCTYPE html>
 
 <html>
@@ -13,7 +15,7 @@
 </head>
 <body>
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Registrar Nova Equipe</a>
     </p>
     <table class="table">
         <thead>

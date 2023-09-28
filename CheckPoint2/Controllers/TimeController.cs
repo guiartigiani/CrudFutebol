@@ -27,6 +27,8 @@ namespace Checkpoint2.Controllers
             {
                 time.Id = ++_id;
                 _ListaTimes.Add(time);
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Equipe cadastrada com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,6 +52,8 @@ namespace Checkpoint2.Controllers
             {
                 var index = _ListaTimes.ToList().FindIndex(t => t.Id == time.Id);
                 _ListaTimes[index] = time;
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Equipe atualizada com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -65,6 +69,8 @@ namespace Checkpoint2.Controllers
             try
             {
                 _ListaTimes.Remove(_ListaTimes.First(t => t.Id == id));
+                TempData["mostrarMensagem"] = true;
+                TempData["mensagem"] = "Equipe removida com SUCESSO!";
                 return RedirectToAction(nameof(Index));
             }
             catch
