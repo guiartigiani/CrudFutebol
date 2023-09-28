@@ -18,7 +18,7 @@ namespace Checkpoint2.Models
 
         [DisplayName("País")]
         [Required(ErrorMessage = "Informe o País")]
-        public string Nacionalidade { get; set; }
+        public string? Nacionalidade { get; set; }
 
         [DataType(DataType.DateTime)]
         [DisplayName("Data de Nascimento")]

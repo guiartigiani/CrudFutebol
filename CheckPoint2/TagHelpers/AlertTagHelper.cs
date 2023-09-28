@@ -1,9 +1,6 @@
 ﻿namespace Checkpoint2.TagHelpers
 {
     using Microsoft.AspNetCore.Razor.TagHelpers;
-
-    namespace SeuNamespace
-    {
         public class AlertTagHelper : TagHelper
         {
             public string? AlertType { get; set; }
@@ -23,6 +20,5 @@
                 }
             }
         }
-    }
 
 }
